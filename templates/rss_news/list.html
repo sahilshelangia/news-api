@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="jumbotron">
+		<h1>Scraped Articles</h1>
+		<ul class="list-group">
+			{%for article in articles%}
+			  <li class="list-group-item active">Serial No: {{article.id}}</li>
+			  <li class="list-group-item">Title: {{article.title}}</li>
+			  <li class="list-group-item">Published Date: {{article.published_date}}</li>
+			  <li class="list-group-item">Source: {{article.source}}</li>
+			  <li class="list-group-item">Link: {{article.link}}</li>
+			  <li class="list-group-item">summary {{article.summary}}</li>
+			  <li class="list-group-item">content {{article.content}}</li>
+			  <br><br><br>
+		  	{%endfor%}
+		</ul>
+	</div>
+		
+</body>
+</html>

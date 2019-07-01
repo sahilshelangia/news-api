@@ -1,0 +1,19 @@
+Time: 2019-07-01 18:59:18,031, Logged At Line: 41, Info: Insert_article_into_database Script Running.
+Time: 2019-07-01 18:59:20,060, Logged At Line: 52, Error: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+Time: 2019-07-01 18:59:20,061, Logged At Line: 53, Info: Insert_article_into_database Script Closed.
+Time: 2019-07-01 18:59:30,076, Logged At Line: 41, Info: Insert_article_into_database Script Running.
+Time: 2019-07-01 18:59:32,094, Logged At Line: 52, Error: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+Time: 2019-07-01 18:59:32,095, Logged At Line: 53, Info: Insert_article_into_database Script Closed.
+Time: 2019-07-01 19:01:43,077, Logged At Line: 228, Internal Server Error: /news/api/collect-news/
+Traceback (most recent call last):
+  File "C:\Users\shelangia\Anaconda3\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\shelangia\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view rss_news.views.collectNews didn't return an HttpResponse object. It returned None instead.
+Time: 2019-07-01 19:02:15,255, Logged At Line: 211, C:\Users\shelangia\Desktop\rss\rss_news\views.py changed, reloading.
+Time: 2019-07-01 19:03:03,187, Logged At Line: 211, C:\Users\shelangia\Desktop\rss\rss_news\views.py changed, reloading.
+Time: 2019-07-01 19:03:47,973, Logged At Line: 45, Info: Insert_article_into_database Script Running.
+Time: 2019-07-01 19:03:49,990, Logged At Line: 56, Error: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+Time: 2019-07-01 19:03:49,991, Logged At Line: 57, Info: Insert_article_into_database Script Closed.
+Time: 2019-07-01 19:05:17,197, Logged At Line: 211, C:\Users\shelangia\Desktop\rss\rss_news\views.py changed, reloading.

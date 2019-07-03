@@ -24,10 +24,12 @@ import logging
 import MySQLdb
 import warnings
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-from .models import Article
+from .models import Article,ArticleTitle
 
 
 
+def base(request):
+	return render(request,'base.html')
 
 # Create your views here.
 def index(request):
@@ -135,6 +137,9 @@ def extract_rss_articles(rss):
 						print("Result==============")
 						newsArticle=Article.objects.create(id=auto_incr_id,published_date=published_date,title=title,link=link,source=source,summary=summary,content=content)
 						newsArticle.save()
+
+						newsArticleTitle=ArticleTitle.objects.create(id=auto_incr_id,title=title,summary=summary)
+						newsArticleTitle.save()
 						print(id,published_date,title,link,source,summary,content)
 						print("Article Fetched")
 						'''

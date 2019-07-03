@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rss_news.views import base
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',base,name='base'),
     path('news/',include('rss_news.urls')),
     path('news/api/',include('rss_news.news_api.urls')),
+    path('mandiPrice/',include('mandiPrice.urls')),
 ]

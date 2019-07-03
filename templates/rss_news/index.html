@@ -7,10 +7,10 @@
 <body>
 	<h1>This is index page for rss news</h1>
 	<ul>
-		<li><h3><a href="{%url 'collectNews'%}">Scrap new articles</a></h3></li>
-		<li><h3><a href="{%url 'listScrapedArticle'%}">List Existing article</a></h3></li>
-		<li><h3><a href="{%url 'ArticleListAPIView'%}">API link</a></h3></li>
-		<li><h3><a href="http://127.0.0.1:8000/news/api/list-news/?format=json">JSON Data</a></h3></li>
+		<li><h3><a href="{%url 'rss_news:collectNews'%}">Scrap new articles</a></h3></li>
+		<li><h3><a href="{%url 'rss_news:listScrapedArticle'%}">List Existing article</a></h3></li>
+		<li><h3><a href="{%url 'rss_news_api:ArticleListAPIView'%}?format=json">Each Article JSON Data</a></h3></li>
+		<li><h3><a href="{%url 'rss_news_api:ArticleTitleListAPIView'%}?format=json">Title of all article JSON Data</a></h3></li>
 	</ul>
 </body>
 </html>

@@ -12,3 +12,10 @@ class Article(models.Model):
 
     def __str__(self):
     	return self.title
+
+class ArticleTitle(models.Model):
+    title = models.CharField(max_length=10000)
+    summary=models.CharField(max_length=10000,default="",blank=True,null=True)
+
+    def __str__(self):
+    	return self.title

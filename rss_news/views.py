@@ -18,11 +18,12 @@ import urllib.parse
 import pandas as pd
 import urllib.request
 from goose3 import Goose
-from datetime import datetime
+from datetime import datetime,date,time
 # from boilerpipe.extract import Extractor
 import logging
 import MySQLdb
 import warnings
+from django.shortcuts import get_object_or_404
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from .models import Article,ArticleTitle
 
@@ -93,11 +94,11 @@ def extract_rss_articles(rss):
 					#date of publish of article extracted
 					if 'published_parsed' in entry.keys():
 						published_date = entry.published_parsed
-						# published_date = datetime.fromtimestamp(mktime(published_date)).isoformat()
-						# published_date = published_date.split("T")[0]
+						tmp=str(published_date[0])+"-"+str(published_date[1])+"-"+str(published_date[2]);
+						published_date=tmp
 					else:
 						published_date = "0000-00-00"
-					#print(published_date)
+					print(published_date)
 					
 
 					#summary of article extracted
@@ -129,17 +130,30 @@ def extract_rss_articles(rss):
 
 					#insert article into database
 					try:
-						
-						# cursor.execute('use main_database')
-						# cursor.execute('insert english_database values (%s,%s,%s,%s,%s,%s,%s)',(id,published_date,title,link,source,summary,content))
-						# logging.info('Info: New Article pushed into database from {}'.format(source))
-						# conn.commit()	
 						print("Result==============")
-						newsArticle=Article.objects.create(id=auto_incr_id,published_date=published_date,title=title,link=link,source=source,summary=summary,content=content)
-						newsArticle.save()
+						try:
+							newsArticle=get_object_or_404(Article,id=auto_incr_id)
+							if newsArticle:
+								newsArticle.published_date=published_date
+								newsArticle.title=title
+								newsArticle.link=link
+								newsArticle.source=source
+								newsArticle.summary=summary
+								newsArticle.content=content
+								newsArticle.save()
+						except:
+							newsArticle=Article.objects.create(id=auto_incr_id,published_date=published_date,title=title,link=link,source=source,summary=summary,content=content)
+							newsArticle.save()
 
-						newsArticleTitle=ArticleTitle.objects.create(id=auto_incr_id,title=title,summary=summary)
-						newsArticleTitle.save()
+						try:
+							newsArticleTitle=get_object_or_404(ArticleTitle,id=auto_incr_id)
+							if newsArticleTitle:
+								newsArticleTitle.title=title
+								newsArticleTitle.summary=summary
+								newsArticleTitle.save()
+						except:								
+							newsArticleTitle=ArticleTitle.objects.create(id=auto_incr_id,title=title,summary=summary)
+							newsArticleTitle.save()
 						print(id,published_date,title,link,source,summary,content)
 						print("Article Fetched")
 						'''

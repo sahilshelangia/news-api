@@ -23,4 +23,5 @@ urlpatterns = [
     path('news/',include('rss_news.urls')),
     path('news/api/',include('rss_news.news_api.urls')),
     path('mandiPrice/',include('mandiPrice.urls')),
+    path('mandiPriceApi/',include('mandiPrice.mandiPriceApi.urls')),
 ]

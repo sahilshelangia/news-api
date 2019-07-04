@@ -139,7 +139,7 @@ def scrapMandiPrice(request):
 	    session.close()
 	    print("Done")
 
-
+	            
     # def popLisTon(sp,lis,commInp):
 	   #  tr_temp=sp.findAll("tr")
 	   #  print("vnjudrsio")
@@ -166,7 +166,7 @@ def scrapMandiPrice(request):
 	   #          lis.append(query)
 	   #          print("inserted")
 
-	            
+
 	def popLis(sp,lis,autoIncr):
 	    tr_temp=sp.findAll("tr")
 	    k=0
@@ -219,7 +219,7 @@ def scrapMandiPrice(request):
 
 
 
-	lag = 2
+	lag = 5
 
 	#os.chdir('/home/ubuntu/pytfiles/')
 	path=os.path.join(BASE_DIR,'mandi-price/comm.json')
